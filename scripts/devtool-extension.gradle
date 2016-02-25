@@ -1,0 +1,3 @@
+configurations  { devtool }
+dependencies    { devtool("org.springframework.boot:spring-boot-devtools") }
+bootRun         { classpath = sourceSets.main.runtimeClasspath + configurations.devtool }
