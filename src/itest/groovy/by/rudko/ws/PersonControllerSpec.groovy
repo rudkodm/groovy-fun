@@ -2,7 +2,7 @@ package by.rudko.ws
 
 import by.rudko.dao.PersonDao
 import by.rudko.model.Person
-
+import by.rudko.ws.PersonController
 import org.springframework.http.MediaType
 import org.springframework.test.web.servlet.MockMvc
 import org.springframework.test.web.servlet.MockMvcBuilder

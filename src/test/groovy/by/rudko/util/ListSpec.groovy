@@ -5,7 +5,7 @@ import spock.lang.Specification
 /**
  * Created by Dmitriy_Rudko on 2/26/2016.
  */
-class ListSpec extends Specification{
+class ListSpec extends Specification {
 
     def "get(0) method of List should return first element"() {
         given:
@@ -35,10 +35,11 @@ class ListSpec extends Specification{
         given:
             ByteArrayOutputStream out = new ByteArrayOutputStream()
             System.setOut(new PrintStream(out))
-            List list = Stub()
-            list[0] >> { print "phrase"}
+            List list = Stub(){
+                get(0) >> { print "phrase"}
+            }
         when:
-            list[0]
+            list.get(0)
         then:
             out.toString() == "phrase"
     }
