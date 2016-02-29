@@ -17,4 +17,10 @@ sourceSets {
 task itest(type: Test, description: 'Runs the integration tests.', group: 'Verification') {
     testClassesDir = sourceSets.itest.output.classesDir
     classpath = sourceSets.itest.runtimeClasspath
+    reports.html.destination = file("${reporting.baseDir}/itests")
+}
+
+task aggregateReports(type: TestReport) {
+    destinationDir = file("${reporting.baseDir}/all-tests")
+    reportOn project.test, project.itest
 }
