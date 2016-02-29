@@ -42,4 +42,18 @@ class ListSpec extends Specification{
         then:
             out.toString() == "phrase"
     }
+
+    def "I should be able to get the same element that I had put before"() {
+        given:
+            List list = []
+        when:
+            list[0] = elementToPut
+        then:
+            elementToCheck == list[0]
+        where:
+            elementToPut | elementToCheck
+            1            | 1
+            2            | 2
+            99           | 99
+    }
 }
