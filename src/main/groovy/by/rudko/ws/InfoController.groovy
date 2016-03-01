@@ -19,13 +19,16 @@ class InfoController {
     String version;
     @Value('${application.git}')
     String git;
+    @Value('${application.id}')
+    String id;
 
     @RequestMapping(path = '/', method = GET)
     def Map info() {
         [
-                'application': name,
-                'version'    : version,
-                'git'        : git
+            'application': name,
+            'version'    : version,
+            'git'        : git,
+            'instance_id': id
         ]
     }
 }

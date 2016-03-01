@@ -1,0 +1,5 @@
+application:
+  name: @NAME@
+  version: @VERSION@
+  git: @GIT@
+  id: ${random.value}

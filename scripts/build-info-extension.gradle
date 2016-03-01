@@ -4,6 +4,6 @@ processResources {
     filter(ReplaceTokens, tokens: [
             NAME   : project.name,
             VERSION: project.version,
-            GIT    : '-'
+            GIT    : 'git rev-parse HEAD'.execute().text.trim()
     ])
 }
