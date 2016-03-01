@@ -1,0 +1,23 @@
+ext.ver = [
+    gradle    : '2.9',
+    groovy    : '2.4.4',
+    spring    : '4.2.4.RELEASE',
+    springBoot: '1.3.2.RELEASE',
+    jsonpath  : '2.1.0',
+    spock     : '1.0+',
+    h2        : '1.4.+'
+]
+
+ext.lib = [
+    springBootModule: { module ->
+        "org.springframework.boot:$module:${ver.springBoot}"
+    },
+    springModule    : { module ->
+        "org.springframework:$module:${ver.spring}"
+    },
+
+    groovy          : "org.codehaus.groovy:groovy:${ver.groovy}",
+    jsonpath        : "com.jayway.jsonpath:json-path:${ver.jsonpath}",
+    spock           : "org.spockframework:spock-core:${ver.spock}",
+    h2              : "com.h2database:h2:${ver.h2}"
+]
