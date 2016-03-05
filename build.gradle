@@ -11,6 +11,7 @@ apply from: 'scripts/libraries-extension.gradle'
 apply from: 'scripts/itest-extension.gradle'
 apply from: 'scripts/devtool-extension.gradle'
 apply from: 'scripts/build-info-extension.gradle'
+apply from: 'scripts/docker-extension.gradle'
 
 jar {
     baseName = project.name
@@ -38,3 +39,4 @@ dependencies {
 task wrapper(type: Wrapper) {
     gradleVersion = ver.gradle
 }
+

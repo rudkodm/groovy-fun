@@ -1,0 +1,31 @@
+task dockerize << {
+    def version = project.version
+    def path = unixStylePath(relativePath(rootDir, jar.archivePath))
+    execute("""
+        docker build
+        -f dockerfiles/Dockerfile-build
+        -t groovy_fun:${version}
+        --build-arg app=${path}
+        .
+    """)
+}
+
+def execute(String cmd){
+    logger.info("EXECUTE: $cmd")
+    def proc =  cmd.execute()
+
+    proc.in.eachLine {line ->
+        logger.debug(line)
+    }
+    logger.error(proc.err.text)
+    logger.info("EXECUTE RESULT: ${proc.exitValue()}")
+}
+
+def unixStylePath(path){
+    path.toString().replace(':','').replace('\\', '/')
+}
+
+def relativePath( base, file) {
+    new File(base.toURI().relativize(file.toURI()).toString())
+}
+
